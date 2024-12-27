@@ -22,16 +22,16 @@ class _UploadScreenState extends State<UploadScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
            CircleAvatar(
-             backgroundColor: const Color.fromARGB(255, 227, 164, 164),
+             backgroundColor:  Colors.grey,
              child: Icon(Icons.camera_alt, color: Colors.white,),
              radius: 70.0,
             
             
            ),
                 SizedBox(height: 20.0),
-            customButton(),
+            customButton(text: "Upload From Camera",),
             SizedBox(height: 20.0),
-            customButton(),
+            customButton(text: "Upload From Gallery",),
               
           ],
         )

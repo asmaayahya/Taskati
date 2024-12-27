@@ -5,8 +5,11 @@ import 'package:flutter_application_1/core/utils/colors.dart';
 import 'package:flutter_application_1/core/utils/text_style.dart';
 
 class customButton extends StatelessWidget {
-  const customButton({
+  String text;
+
+   customButton({
     super.key,
+    required this.text,
   });
 
   @override
@@ -15,7 +18,7 @@ class customButton extends StatelessWidget {
       width: 250,
       height: 50,
       child: ElevatedButton(
-        onPressed: (){} , child: Text("Upload image", style: getTitleTextStyle(color: AppColor.whitecolor, fontSize: 15),),
+        onPressed: (){} , child: Text(text, style: getTitleTextStyle(color: AppColor.whitecolor, fontSize: 15),),
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColor.primaryColor,
           shape: RoundedRectangleBorder(
