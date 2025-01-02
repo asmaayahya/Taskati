@@ -5,22 +5,35 @@ import 'package:flutter_application_1/core/utils/colors.dart';
 import 'package:flutter_application_1/core/utils/text_style.dart';
 
 class customButton extends StatelessWidget {
-  String text;
+  final String text;
+  final double width;
+  final double height;
+  final Color ?backgroundColor;
+  final Color ?foregroundColor;
+  final Function() onPressed;
+
 
    customButton({
     super.key,
-    required this.text,
+     required this.text,
+     this.width =250,
+     this.height=45,
+     this.backgroundColor,
+     this.foregroundColor,
+     required this.onPressed,
+    
+
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 250,
-      height: 50,
+      width: width,
+      height: height,
       child: ElevatedButton(
-        onPressed: (){} , child: Text(text, style: getTitleTextStyle(color: AppColor.whitecolor, fontSize: 15),),
+        onPressed: (){} , child: Text(text, style: getTitleTextStyle(color: foregroundColor?? AppColor.whitecolor, fontSize: 15),),
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColor.primaryColor,
+          backgroundColor: backgroundColor??AppColor.primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
