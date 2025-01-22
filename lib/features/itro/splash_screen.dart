@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/utils/colors.dart';
 import 'package:flutter_application_1/core/functions/navigations.dart';
 import 'package:flutter_application_1/core/utils/text_style.dart';
+import 'package:flutter_application_1/features/home/home_screen.dart';
 import 'package:flutter_application_1/features/upload/upload_screen.dart';
+import 'package:hive/hive.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,8 +20,16 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
+    var userBox = Hive.box("user");
+    bool isuploaded = userBox.get("isuploaded")??false;
     Future.delayed(Duration(seconds: 3),(){
-     pushWithReplacment(context, UploadScreen());
+      if((isuploaded)) {
+      pushWithReplacment(context, HomeScreen());
+     }else
+      {
+        pushWithReplacment(context, UploadScreen());
+      }
+     
   });}
   @override
   Widget build(BuildContext context) {

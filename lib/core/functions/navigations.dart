@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/features/upload/upload_screen.dart';
 
-pushTO(BuildContext context, Widget newScreen){
-   Navigator.push(context, MaterialPageRoute(
-    builder: (context) => newScreen));
-    
+void pushTO(BuildContext context, Widget screen) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => screen),
+  );
 }
+
 
 pushWithReplacment(BuildContext context, Widget newScreen){
    Navigator.pushReplacement(context, MaterialPageRoute(
